@@ -1,4 +1,7 @@
 <?php
+
+include "./lib/db.php";
+
 include "./inc/header.php";
 ?>
 
