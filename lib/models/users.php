@@ -13,7 +13,24 @@ class Users
             $stmt->bindParam(":username", $username);
             $stmt->execute();
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
-            return $results[0];
+            return count($results) > 0 ? $results[0] : false;
+        } catch (PDOException $e) {
+            header("Location: /500.php");
+            exit();
+        }
+    }
+
+    static function create_user($username, $password)
+    {
+        global $pdo;
+
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        try {
+            $stmt = $pdo->prepare("INSERT INTO users VALUES(:username, :password)");
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":password", $hash);
+            $stmt->execute();
         } catch (PDOException $e) {
             header("Location: /500.php");
             exit();

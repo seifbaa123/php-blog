@@ -2,30 +2,25 @@
 require "../inc/header.php";
 require "../lib/models/users.php";
 
-function getErrorMessage()
+function getErrorMessage($username, $password)
 {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
     if (empty($username) || empty($password)) {
         return "Username or password is empty!";
     }
 
     $user = Users::get_user($username);
-    if ($user == null) {
-        return "User does not exist!";
+    if ($user != null) {
+        return "User already exist!";
     }
-
-    if (!password_verify($password, $user->password)) {
-        return "Wrong password!";
-    }
-
-    return null;
 }
 
 if (isset($_POST["submit"])) {
-    $err = getErrorMessage();
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $err = getErrorMessage($username, $password);
+
     if ($err == null) {
+        Users::create_user($username, $password);
         $_SESSION["username"] = $username;
         header("Location: /dashboard");
         exit();
@@ -36,7 +31,7 @@ if (isset($_POST["submit"])) {
 
 <main>
     <form class="auth-form" method="POST">
-        <h1>Login</h1>
+        <h1>Signup</h1>
         <?php if ($err != null): ?>
             <span class="error">
                 <?= $err ?>
