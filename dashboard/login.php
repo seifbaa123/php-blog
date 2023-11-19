@@ -2,11 +2,8 @@
 require "../inc/header.php";
 require "../lib/models/users.php";
 
-function getErrorMessage()
+function getErrorMessage($username, $password)
 {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
     if (empty($username) || empty($password)) {
         return "Username or password is empty!";
     }
@@ -24,8 +21,12 @@ function getErrorMessage()
 }
 
 if (isset($_POST["submit"])) {
-    $err = getErrorMessage();
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $err = getErrorMessage($username, $password);
+
     if ($err == null) {
+        session_start();
         $_SESSION["username"] = $username;
         header("Location: /dashboard");
         exit();

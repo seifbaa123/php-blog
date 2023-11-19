@@ -271,6 +271,14 @@ nav .icons i {
     display: block;
 }
 
+/* dashboard */
+
+.dashboard header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* footer */
 footer {
     padding: 3rem 1rem;

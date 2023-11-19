@@ -21,6 +21,7 @@ if (isset($_POST["submit"])) {
 
     if ($err == null) {
         Users::create_user($username, $password);
+        session_start();
         $_SESSION["username"] = $username;
         header("Location: /dashboard");
         exit();

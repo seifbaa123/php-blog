@@ -9,5 +9,5 @@ CREATE TABLE posts (
     image_url VARCHAR(255),
     content TEXT,
     username VARCHAR(255) NOT NULL,
-    FOREIGN KEY (username) REFERENCES users(username)
+    FOREIGN KEY (username) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE
 );
