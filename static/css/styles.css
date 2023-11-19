@@ -230,19 +230,19 @@ nav .icons i {
 
 /* auth form */
 
-.auth-form {
+.form {
     width: 100%;
     max-width: 420px;
     margin: 0 auto;
     padding: 1rem;
 }
 
-.auth-form h1 {
+.form h1 {
     margin-bottom: 1rem;
     text-align: center;
 }
 
-.auth-form span {
+.form span {
     width: 100%;
     margin-bottom: 1rem;
     display: block;
@@ -254,19 +254,14 @@ nav .icons i {
     background-color: var(--danger);
 }
 
-.auth-form label {
+.form label {
     display: block;
     font-size: .75rem;
     font-weight: bold;
     margin-bottom: .5rem;
 }
 
-.auth-form input {
-    width: 100%;
-    display: block;
-}
-
-.auth-form input {
+.form :is(input, textarea) {
     width: 100%;
     display: block;
 }
@@ -335,6 +330,11 @@ footer {
     padding: .25rem;
     font-size: .75rem;
     font-weight: bold;
+    color: var(--blue);
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 .link.success {

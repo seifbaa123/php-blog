@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
 ?>
 
 <main>
-    <form class="auth-form" method="POST">
+    <form class="form" method="POST">
         <h1>Login</h1>
         <?php if ($err != null): ?>
             <span class="error">

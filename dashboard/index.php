@@ -17,11 +17,12 @@ $posts = Posts::get_all();
         </form>
     </header>
 
-    <div class="table">
+    <a class="link" href="/dashboard/create.php">Create new post</a>
 
-        <?php if (count($posts) == 0): ?>
-            <p style="text-align: center">There is no posts yet!</p>
-        <?php else: ?>
+    <?php if (count($posts) == 0): ?>
+        <p style="text-align: center">There is no posts yet!</p>
+    <?php else: ?>
+        <div class="table">
             <table>
                 <thead>
                     <th>#</th>
@@ -45,8 +46,8 @@ $posts = Posts::get_all();
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        <?php endif; ?>
-    </div>
+        </div>
+    <?php endif; ?>
 </main>
 
 <?php

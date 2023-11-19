@@ -34,4 +34,23 @@ class Posts
             exit();
         }
     }
+
+    static function create($title, $image, $content, $username)
+    {
+        global $pdo;
+
+        try {
+            $stmt = $pdo->prepare("INSERT INTO posts VALUES (null, :title, :image, :content, :username)");
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':content', $content);
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_CLASS);
+            return $results[0];
+        } catch (PDOException $e) {
+            header("Location: /500.php");
+            exit();
+        }
+    }
 }
