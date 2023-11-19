@@ -12,7 +12,7 @@ $post = Posts::get_by_id($_GET["id"]);
         <h1>
             <?= $post->title ?>
         </h1>
-        <img src="./images/<?= $post->image_url ?>" alt="<?= $post->title ?>" />
+        <img src="./static/images/<?= $post->image_url ?>" alt="<?= $post->title ?>" />
         <p>
             <?= $post->content ?>
         </p>

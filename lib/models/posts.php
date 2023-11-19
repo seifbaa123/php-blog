@@ -1,6 +1,6 @@
 <?php
 
-require "./lib/db.php";
+require __DIR__ . "/../db.php";
 
 class Posts
 {
@@ -14,7 +14,7 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results;
         } catch (PDOException $e) {
-            header("Location: ./500.php");
+            header("Location: /500.php");
             exit();
         }
     }
@@ -30,7 +30,7 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results[0];
         } catch (PDOException $e) {
-            header("Location: ./500.php");
+            header("Location: /500.php");
             exit();
         }
     }
