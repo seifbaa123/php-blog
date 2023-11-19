@@ -285,3 +285,62 @@ footer {
     text-align: center;
     color: var(--gray);
 }
+
+/* table styles */
+
+.table {
+    width: 100%;
+    background-color: var(--white);
+    overflow-x: auto;
+    border-radius: .125rem;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table table th {
+    text-align: left;
+    font-size: .75rem;
+    color: var(--dark-gray);
+}
+
+.table table :is(td, th) {
+    padding: .5rem 1rem;
+}
+
+.table table tbody tr:hover {
+    background-color: var(--light);
+}
+
+.table table td {
+    font-size: .75rem;
+    padding: .5rem 1rem;
+    border-top: .075rem solid #dee2e6;
+    transition: background .3s ease-in;
+}
+
+.table table td:nth-child(2) {
+    width: 80%;
+}
+
+.table table td:last-child {
+    width: 20%;
+}
+
+/* links styles */
+
+.link {
+    padding: .25rem;
+    font-size: .75rem;
+    font-weight: bold;
+}
+
+.link.success {
+    color: var(--success);
+}
+
+.link.danger {
+    color: var(--danger);
+}
