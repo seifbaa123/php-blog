@@ -1,0 +1,18 @@
+.link {
+    padding: .25rem;
+    font-size: .75rem;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.link.success {
+    color: var(--success);
+}
+
+.link.danger {
+    color: var(--danger);
+}

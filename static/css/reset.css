@@ -1,0 +1,49 @@
+*:is(:not(i), ::before, ::after) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--dark);
+    font-family: Poppins, sans-serif;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+button,
+textarea {
+    border: none;
+    outline: none;
+    padding: .75em;
+    border-radius: .25em;
+}
+
+input,
+textarea {
+    border: .1em solid var(--gray);
+    background-color: var(--light);
+}
+
+button {
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: bold;
+    border-radius: .75em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--gray-dark);
+}

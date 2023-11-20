@@ -26,5 +26,5 @@ $posts = Posts::get_all();
 </main>
 
 <?php
-include "/inc/footer.php";
+include "./inc/footer.php";
 ?>

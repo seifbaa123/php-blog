@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Home</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/posts.css">
+    <link rel="stylesheet" href="/static/css/table.css">
+    <link rel="stylesheet" href="/static/css/form.css">
+    <link rel="stylesheet" href="/static/css/links.css">
     <link href="/static/fontawesome6/css/all.css" rel="stylesheet">
 </head>
 
 <body>
     <nav>
-        <div class="search">
-            <label>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search...">
-            </label>
-        </div>
         <h2><a href="/">Blog</a></h2>
         <div class="icons">
             <a href="#"><i class="fa-brands fa-twitter"></i></a>

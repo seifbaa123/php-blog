@@ -1,0 +1,42 @@
+@font-face {
+    font-family: Poppins;
+    src: url("../fonts/Poppins.ttf");
+}
+
+:root {
+    --white: #fff;
+    --dark: #212529;
+    --gray: #6c757d;
+    --light: #f8f9fa;
+
+    --blue: #0d6efd;
+    --red: #dc3545;
+    --gray-dark: #343a40;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+}
+
+/* dashboard */
+
+.dashboard header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* footer */
+footer {
+    margin-top: auto;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--gray);
+}
