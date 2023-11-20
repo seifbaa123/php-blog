@@ -33,14 +33,14 @@ $posts = Posts::get_all();
                     <?php foreach ($posts as $post): ?>
                         <tr>
                             <td>
-                                <?= $post->id ?>
+                                <?= $post->post_id ?>
                             </td>
                             <td>
                                 <?= $post->title ?>
                             </td>
                             <td>
-                                <a class="link success" href="/dashboard/update?id=<?= $post->id ?>">update</a>
-                                <a class="link danger" href="/dashboard/delete?id=<?= $post->id ?>">delete</a>
+                                <a class="link success" href="/dashboard/update.php?id=<?= $post->post_id ?>">update</a>
+                                <a class="link danger" href="/dashboard/delete.php?id=<?= $post->post_id ?>">delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

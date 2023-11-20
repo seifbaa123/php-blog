@@ -4,6 +4,7 @@ require "../lib/auth.php";
 
 require "../inc/header.php";
 require "../lib/models/posts.php";
+require "../lib/utils.php";
 
 function getErrorMessage($title, $content)
 {
@@ -18,30 +19,12 @@ function getErrorMessage($title, $content)
     return null;
 }
 
-function uploadFile()
-{
-    if (!isset($_FILES["image"]) || $_FILES["image"]["error"] != 0) {
-        return null;
-    }
-
-    $uploadDir = "../static/images/";
-
-    $fileName = uniqid();
-    $targetPath = $uploadDir . $fileName;
-
-    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $targetPath)) {
-        return null;
-    }
-
-    return $fileName;
-}
-
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
     $content = $_POST["content"];
     $err = getErrorMessage($title, $content);
 
-    $image = uploadFile();
+    $image = uploadImage();
 
     if ($err == null && $image != null) {
         Posts::create($title, $image, $content, $username);
@@ -53,9 +36,10 @@ if (isset($_POST["submit"])) {
 ?>
 
 <main>
+    <a class="link" href="/dashboard/">go back</a>
     <form class="form" method="POST" enctype="multipart/form-data">
         <h1>Create new post</h1>
-        <?php if ($err != null || $image != null): ?>
+        <?php if ($err != null || (isset($image) && $image == null)): ?>
             <span class="error">
                 <?= $err ?? "Could not upload image" ?>
             </span>
@@ -69,7 +53,7 @@ if (isset($_POST["submit"])) {
             <input type="file" name="image">
         </label>
         <label>
-            Image
+            Content
             <textarea name="content" rows="5"></textarea>
         </label>
         <button name="submit">Submit</button>
