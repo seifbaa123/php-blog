@@ -95,8 +95,21 @@ class Posts
             $stmt->bindParam(':image', $image);
             $stmt->execute();
         } catch (PDOException $e) {
-            echo $e;
-            // header("Location: /500.php");
+            header("Location: /500.php");
+            exit();
+        }
+    }
+
+    static function delete($id)
+    {
+        global $pdo;
+
+        try {
+            $stmt = $pdo->prepare("DELETE FROM posts WHERE post_id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            header("Location: /500.php");
             exit();
         }
     }

@@ -69,7 +69,7 @@ if (isset($_POST["update-image"])) {
         <h2>Update post</h2>
         <?php if (isset($err)): ?>
             <span class="error">
-                <?= $err ?? "Could not upload image" ?>
+                <?= $err ?>
             </span>
         <?php endif; ?>
         <label>
