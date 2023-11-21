@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/../../db.php";
+require "$LIB/db.php";
 
 class Posts
 {

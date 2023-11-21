@@ -1,10 +1,10 @@
 <?php
 
-require "../lib/auth.php";
+require "$LIB/auth.php";
 
-require "../inc/header.php";
-require "../lib/models/posts.php";
-require "../lib/utils.php";
+includes("/header");
+require "$LIB/models/posts.php";
+require "$LIB/utils.php";
 
 $post = Posts::get_by_id_and_other($_GET["id"], $username);
 
@@ -96,5 +96,5 @@ if (isset($_POST["update-image"])) {
 </main>
 
 <?php
-require "../inc/footer.php";
+includes("footer");
 ?>

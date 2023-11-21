@@ -1,6 +1,7 @@
 <?php
-require "../inc/header.php";
-require "../lib/models/users.php";
+
+includes("header");
+require "$LIB/models/users.php";
 
 function getErrorMessage($username, $password)
 {
@@ -51,5 +52,5 @@ if (isset($_POST["submit"])) {
 </main>
 
 <?php
-require "../inc/footer.php";
+includes("footer");
 ?>

@@ -1,10 +1,10 @@
 <?php
 
-require "../lib/auth.php";
+require "$LIB/auth.php";
 
-require "../inc/header.php";
-require "../lib/models/posts.php";
-require "../lib/utils.php";
+includes("/header");
+require "$LIB/models/posts.php";
+require "$LIB/utils.php";
 
 function getErrorMessage($title, $content)
 {
@@ -61,5 +61,5 @@ if (isset($_POST["submit"])) {
 </main>
 
 <?php
-require "../inc/footer.php";
+includes("footer");
 ?>

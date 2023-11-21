@@ -1,7 +1,7 @@
 <?php
 
-require "./inc/header.php";
-require "./lib/models/posts.php";
+includes("header");
+require "$LIB/models/posts.php";
 
 $post = Posts::get_by_id($_GET["id"]);
 
@@ -12,7 +12,7 @@ $post = Posts::get_by_id($_GET["id"]);
         <h1>
             <?= $post->title ?>
         </h1>
-        <img src="./static/images/<?= $post->image_url ?>" alt="<?= $post->title ?>" />
+        <img src="/images/<?= $post->image_url ?>" alt="<?= $post->title ?>" />
         <p>
             <?= $post->content ?>
         </p>
@@ -22,5 +22,5 @@ $post = Posts::get_by_id($_GET["id"]);
 </main>
 
 <?php
-require "./inc/footer.php";
+includes("footer");
 ?>

@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . "/../includes/header.php";
-require __DIR__ . "/../includes/models/posts.php";
+includes("header");
+require "$LIB/models/posts.php";
 
 $posts = Posts::get_all();
 
@@ -26,5 +26,5 @@ $posts = Posts::get_all();
 </main>
 
 <?php
-require __DIR__ . "./inc/footer.php";
+includes("footer");
 ?>

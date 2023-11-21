@@ -1,9 +1,12 @@
 <?php
 
-$uri = $_SERVER["REQUEST_URI"];
+require_once "../core/import-helpers.php";
 
-if (substr($uri, -1) == "/") {
-    $uri = $uri . "index";
+$parsedUrl = parse_url($_SERVER["REQUEST_URI"]);
+$path = $parsedUrl['path'];
+
+if (substr($path, -1) == "/") {
+    $path = $path . "index";
 }
 
-require "../views" . $uri . ".php";
+require "../views" . $path . ".php";

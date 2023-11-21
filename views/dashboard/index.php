@@ -1,9 +1,9 @@
 <?php
 
-require "../lib/auth.php";
+require "$LIB/auth.php";
 
-require "../inc/header.php";
-require "../lib/models/posts.php";
+includes("header");
+require "$LIB/models/posts.php";
 
 $posts = Posts::get_all();
 
@@ -51,5 +51,5 @@ $posts = Posts::get_all();
 </main>
 
 <?php
-require "../inc/footer.php";
+includes("footer");
 ?>

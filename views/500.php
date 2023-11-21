@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../inc/header.php";
+includes("header");
 ?>
 
 <main>
@@ -7,5 +7,5 @@ require __DIR__ . "/../inc/header.php";
 </main>
 
 <?php
-require __DIR__ . "/../inc/footer.php";
+includes("footer");
 ?>
