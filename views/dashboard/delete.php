@@ -13,7 +13,7 @@ if ($post == null) {
 }
 
 if (isset($_POST["submit"])) {
-    unlink("../static/images/" . $post->image_url);
+    unlink("../../public/images/" . $post->image_url);
     Posts::delete($post->post_id);
     header("Location: /dashboard");
     exit();

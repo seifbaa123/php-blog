@@ -3,7 +3,7 @@ includes("header");
 ?>
 
 <main>
-    <h1 style="text-align: center">500 Server Error</h1>
+    <h1 style="text-align: center">404 Not found</h1>
 </main>
 
 <?php

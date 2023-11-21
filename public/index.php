@@ -1,12 +1,9 @@
 <?php
 
+require_once "../core/utils.php";
+require_once "../core/router.php";
 require_once "../core/import-helpers.php";
 
-$parsedUrl = parse_url($_SERVER["REQUEST_URI"]);
-$path = $parsedUrl['path'];
+require_once "../app/routes.php";
 
-if (substr($path, -1) == "/") {
-    $path = $path . "index";
-}
-
-require "../views" . $path . ".php";
+require Router::get_view();
