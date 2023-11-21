@@ -96,5 +96,5 @@ if (isset($_POST["update-image"])) {
 </main>
 
 <?php
-include "../inc/footer.php";
+require "../inc/footer.php";
 ?>

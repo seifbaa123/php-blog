@@ -6,7 +6,7 @@ function uploadImage()
         return null;
     }
 
-    $uploadDir = "../static/images/";
+    $uploadDir = "../public/images/";
 
     $fileName = uniqid();
     $targetPath = $uploadDir . $fileName;

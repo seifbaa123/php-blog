@@ -1,7 +1,7 @@
 <?php
 
-require "./inc/header.php";
-require "./lib/models/posts.php";
+require __DIR__ . "/../includes/header.php";
+require __DIR__ . "/../includes/models/posts.php";
 
 $posts = Posts::get_all();
 
@@ -10,8 +10,8 @@ $posts = Posts::get_all();
 <main>
     <section class="posts">
         <?php foreach ($posts as $index => $post): ?>
-            <a href="/post.php?id=<?= $post->post_id ?>" class="post <?= $index === 0 ? 'full-width' : '' ?>">
-                <img src="/static/images/<?= $post->image_url ?>" alt="<?= $post->title ?>">
+            <a href="/post?id=<?= $post->post_id ?>" class="post <?= $index === 0 ? 'full-width' : '' ?>">
+                <img src="/images/<?= $post->image_url ?>" alt="<?= $post->title ?>">
                 <div class="content">
                     <h3>
                         <?= $post->title ?>
@@ -26,5 +26,5 @@ $posts = Posts::get_all();
 </main>
 
 <?php
-include "./inc/footer.php";
+require __DIR__ . "./inc/footer.php";
 ?>

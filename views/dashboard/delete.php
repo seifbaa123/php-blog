@@ -26,10 +26,12 @@ if (isset($_POST["submit"])) {
     <a class="link" href="/dashboard/">go back</a>
     <form class="form" method="POST">
         <h2>Delete image</h2>
-        <button name="submit">Submit</button>
+        <p style="margin-bottom: .75rem">Are you sure you want to delete this post.</p>
+        <button class="danger" name="submit">Delete</button>
+        <button class="secondary" name="submit" type="button" onclick="location = '/dashboard'">Cancel</button>
     </form>
 </main>
 
 <?php
-include "../inc/footer.php";
+require "../inc/footer.php";
 ?>

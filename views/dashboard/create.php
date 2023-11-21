@@ -61,5 +61,5 @@ if (isset($_POST["submit"])) {
 </main>
 
 <?php
-include "../inc/footer.php";
+require "../inc/footer.php";
 ?>

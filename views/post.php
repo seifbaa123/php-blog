@@ -22,5 +22,5 @@ $post = Posts::get_by_id($_GET["id"]);
 </main>
 
 <?php
-include "./inc/footer.php";
+require "./inc/footer.php";
 ?>

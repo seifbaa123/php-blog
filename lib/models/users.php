@@ -15,7 +15,7 @@ class Users
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return count($results) > 0 ? $results[0] : false;
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -32,7 +32,7 @@ class Users
             $stmt->bindParam(":password", $hash);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }

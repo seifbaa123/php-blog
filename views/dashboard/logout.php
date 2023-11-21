@@ -3,5 +3,5 @@
 session_start();
 unset($_SESSION["username"]);
 
-header("Location: /dashboard/login.php");
+header("Location: /dashboard/login");
 

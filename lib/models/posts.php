@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/../db.php";
+require __DIR__ . "/../../db.php";
 
 class Posts
 {
@@ -14,7 +14,7 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results;
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -30,7 +30,7 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results[0];
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -47,7 +47,7 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results[0];
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -64,7 +64,7 @@ class Posts
             $stmt->bindParam(':username', $username);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -80,7 +80,7 @@ class Posts
             $stmt->bindParam(':content', $content);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -95,7 +95,7 @@ class Posts
             $stmt->bindParam(':image', $image);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
@@ -109,7 +109,7 @@ class Posts
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500.php");
+            header("Location: /500");
             exit();
         }
     }
