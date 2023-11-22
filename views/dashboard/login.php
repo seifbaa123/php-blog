@@ -1,10 +1,9 @@
 <?php
 
 includes("header");
-require "$LIB/models/users.php";
+require_once "$LIB/models/users.php";
 
-function getErrorMessage($username, $password)
-{
+function getErrorMessage($username, $password) {
     if (empty($username) || empty($password)) {
         return "Username or password is empty!";
     }
@@ -29,8 +28,7 @@ if (isset($_POST["submit"])) {
     if ($err == null) {
         session_start();
         $_SESSION["username"] = $username;
-        header("Location: /dashboard");
-        exit();
+        redirect("/dashboard");
     }
 }
 
@@ -52,6 +50,7 @@ if (isset($_POST["submit"])) {
             Password
             <input type="password" name="password">
         </label>
+        <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="submit">Submit</button>
     </form>
 </main>

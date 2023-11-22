@@ -1,9 +1,9 @@
 <?php
 
-require "$LIB/auth.php";
+require_once "$LIB/auth.php";
 
 includes("header");
-require "$LIB/models/posts.php";
+require_once "$LIB/models/posts.php";
 
 $posts = Posts::get_all();
 
@@ -13,6 +13,7 @@ $posts = Posts::get_all();
     <header>
         <h1>Dashboard</h1>
         <form action="/dashboard/logout" method="POST">
+            <input type="hidden" name="csrf" value="<?= $csrf ?>">
             <button>Logout</button>
         </form>
     </header>

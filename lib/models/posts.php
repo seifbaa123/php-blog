@@ -1,11 +1,9 @@
 <?php
 
-require "$LIB/db.php";
+require_once "$LIB/db.php";
 
-class Posts
-{
-    static function get_all()
-    {
+class Posts {
+    static function get_all() {
         global $pdo;
 
         try {
@@ -14,13 +12,11 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results;
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function get_by_id($id)
-    {
+    static function get_by_id($id) {
         global $pdo;
 
         try {
@@ -30,13 +26,11 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results[0];
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function get_by_id_and_other($id, $other)
-    {
+    static function get_by_id_and_other($id, $other) {
         global $pdo;
 
         try {
@@ -47,13 +41,11 @@ class Posts
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return $results[0];
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function create($title, $image, $content, $username)
-    {
+    static function create($title, $image, $content, $username) {
         global $pdo;
 
         try {
@@ -64,13 +56,11 @@ class Posts
             $stmt->bindParam(':username', $username);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function update($id, $title, $content)
-    {
+    static function update($id, $title, $content) {
         global $pdo;
 
         try {
@@ -80,13 +70,11 @@ class Posts
             $stmt->bindParam(':content', $content);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function update_image($id, $image)
-    {
+    static function update_image($id, $image) {
         global $pdo;
 
         try {
@@ -95,13 +83,11 @@ class Posts
             $stmt->bindParam(':image', $image);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function delete($id)
-    {
+    static function delete($id) {
         global $pdo;
 
         try {
@@ -109,8 +95,7 @@ class Posts
             $stmt->bindParam(':id', $id);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 }

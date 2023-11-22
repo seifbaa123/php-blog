@@ -2,10 +2,8 @@
 
 require __DIR__ . "/../db.php";
 
-class Users
-{
-    static function get_user($username)
-    {
+class Users {
+    static function get_user($username) {
         global $pdo;
 
         try {
@@ -15,13 +13,11 @@ class Users
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
             return count($results) > 0 ? $results[0] : false;
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 
-    static function create_user($username, $password)
-    {
+    static function create_user($username, $password) {
         global $pdo;
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -32,8 +28,7 @@ class Users
             $stmt->bindParam(":password", $hash);
             $stmt->execute();
         } catch (PDOException $e) {
-            header("Location: /500");
-            exit();
+            redirect("/500");
         }
     }
 }

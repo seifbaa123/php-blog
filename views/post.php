@@ -1,7 +1,7 @@
 <?php
 
 includes("header");
-require "$LIB/models/posts.php";
+require_once "$LIB/models/posts.php";
 
 $post = Posts::get_by_id($_GET["id"]);
 

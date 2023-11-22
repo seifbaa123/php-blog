@@ -20,6 +20,9 @@ class Router {
         }
 
         if ($method === "POST" && isset(self::$post_routes[$path])) {
+            if ($_POST["csrf"] != $_SESSION["csrf"]) {
+                redirect("/500");
+            }
             return "../views/" . self::$post_routes[$path] . ".php";
         }
 

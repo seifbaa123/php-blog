@@ -1,20 +1,18 @@
 <?php
 
-require "$LIB/auth.php";
+require_once "$LIB/auth.php";
 
 includes("/header");
-require "$LIB/models/posts.php";
-require "$LIB/utils.php";
+require_once "$LIB/models/posts.php";
+require_once "$LIB/utils.php";
 
 $post = Posts::get_by_id_and_other($_GET["id"], $username);
 
 if ($post == null) {
-    header("Location: /dashboard");
-    exit();
+    redirect("/dashboard");
 }
 
-function getErrorMessage($title, $content)
-{
+function getErrorMessage($title, $content) {
     if (empty($title)) {
         return "Title is empty!";
     }
@@ -33,8 +31,7 @@ if (isset($_POST["update-post"])) {
 
     if ($err == null) {
         Posts::update($post->post_id, $title, $content);
-        header("Location: /dashboard");
-        exit();
+        redirect("/dashboard");
     }
 }
 
@@ -45,8 +42,7 @@ if (isset($_POST["update-post"])) {
 
     if ($err == null) {
         Posts::update($post->post_id, $title, $content);
-        header("Location: /dashboard");
-        exit();
+        redirect("/dashboard");
     }
 }
 
@@ -56,15 +52,14 @@ if (isset($_POST["update-image"])) {
     if ($image != null) {
         unlink("../static/images/" . $post->image_url);
         Posts::update_image($post->post_id, $image);
-        header("Location: /dashboard");
-        exit();
+        redirect("/dashboard");
     }
 }
 
 ?>
 
 <main>
-    <a class="link" href="/dashboard/">go back</a>
+    <a class="link" href="/dashboard">go back</a>
     <form class="form" method="POST">
         <h2>Update post</h2>
         <?php if (isset($err)): ?>
@@ -80,6 +75,7 @@ if (isset($_POST["update-image"])) {
             Content
             <textarea name="content" rows="5"><?= $post->content ?></textarea>
         </label>
+        <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="update-post">Submit</button>
     </form>
     <form class="form" method="POST" enctype="multipart/form-data">
@@ -91,6 +87,7 @@ if (isset($_POST["update-image"])) {
             Image
             <input type="file" name="image">
         </label>
+        <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="update-image">Submit</button>
     </form>
 </main>

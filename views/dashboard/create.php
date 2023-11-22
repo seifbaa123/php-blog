@@ -1,13 +1,12 @@
 <?php
 
-require "$LIB/auth.php";
+require_once "$LIB/auth.php";
 
 includes("/header");
-require "$LIB/models/posts.php";
-require "$LIB/utils.php";
+require_once "$LIB/models/posts.php";
+require_once "$LIB/utils.php";
 
-function getErrorMessage($title, $content)
-{
+function getErrorMessage($title, $content) {
     if (empty($title)) {
         return "Title is empty!";
     }
@@ -28,15 +27,14 @@ if (isset($_POST["submit"])) {
 
     if ($err == null && $image != null) {
         Posts::create($title, $image, $content, $username);
-        header("Location: /dashboard");
-        exit();
+        redirect("/dashboard");
     }
 }
 
 ?>
 
 <main>
-    <a class="link" href="/dashboard/">go back</a>
+    <a class="link" href="/dashboard">go back</a>
     <form class="form" method="POST" enctype="multipart/form-data">
         <h1>Create new post</h1>
         <?php if ($err != null || (isset($image) && $image == null)): ?>
@@ -56,6 +54,7 @@ if (isset($_POST["submit"])) {
             Content
             <textarea name="content" rows="5"></textarea>
         </label>
+        <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="submit">Submit</button>
     </form>
 </main>

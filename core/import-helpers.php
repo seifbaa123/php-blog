@@ -1,7 +1,6 @@
 <?php
 
-function includes($path)
-{
+function includes($path) {
     require "../includes/$path.php";
 }
 
