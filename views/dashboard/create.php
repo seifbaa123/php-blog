@@ -1,6 +1,6 @@
 <?php
 
-require_once "$LIB/auth.php";
+
 
 includes("/header");
 require_once "$LIB/models/posts.php";
@@ -37,7 +37,7 @@ if (isset($_POST["submit"])) {
     <a class="link" href="/dashboard">go back</a>
     <form class="form" method="POST" enctype="multipart/form-data">
         <h1>Create new post</h1>
-        <?php if ($err != null || (isset($image) && $image == null)): ?>
+        <?php if (isset($er) || (isset($image) && $image == null)): ?>
             <span class="error">
                 <?= $err ?? "Could not upload image" ?>
             </span>

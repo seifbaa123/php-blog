@@ -1,6 +1,6 @@
 <?php
 
-require_once "$LIB/auth.php";
+
 
 includes("header");
 require_once "$LIB/models/posts.php";

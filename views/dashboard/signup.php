@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
 <main>
     <form class="form" method="POST">
         <h1>Signup</h1>
-        <?php if ($err != null): ?>
+        <?php if (isset($er)): ?>
             <span class="error">
                 <?= $err ?>
             </span>
