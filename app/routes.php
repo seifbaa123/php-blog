@@ -2,6 +2,7 @@
 
 Router::GET("/", "index");
 Router::GET("/post", "post");
+Router::GET("/search", "search");
 
 Router::GET("/dashboard/login", "dashboard/login", ["logged-in"]);
 Router::POST("/dashboard/login", "dashboard/login", ["logged-in"]);

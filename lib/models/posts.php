@@ -30,6 +30,21 @@ class Posts {
         }
     }
 
+    static function search($q) {
+        global $pdo;
+        $q = "%" . trim($q) . "%";
+
+        try {
+            $stmt = $pdo->prepare("SELECT * FROM posts WHERE title LIKE :q");
+            $stmt->bindParam(':q', $q);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_CLASS);
+            return $results;
+        } catch (PDOException $e) {
+            redirect("/500");
+        }
+    }
+
     static function get_by_id_and_other($id, $other) {
         global $pdo;
 

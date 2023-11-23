@@ -18,6 +18,12 @@
 
 <body>
     <nav>
+        <form class="search" action="/search">
+            <label>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="q" value="<?= isset($_GET["q"]) ? $_GET["q"] : '' ?>" placeholder="Search...">
+            </label>
+        </form>
         <h2><a href="/">Blog</a></h2>
         <div class="icons">
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
