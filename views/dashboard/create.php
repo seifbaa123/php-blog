@@ -1,32 +1,21 @@
 <?php
 
-
-
 includes("/header");
 require_once "$LIB/models/posts.php";
 require_once "$LIB/utils.php";
 
-function getErrorMessage($title, $content) {
-    if (empty($title)) {
-        return "Title is empty!";
-    }
-
-    if (empty($content)) {
-        return "Content is empty!";
-    }
-
-    return null;
-}
-
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
     $content = $_POST["content"];
-    $err = getErrorMessage($title, $content);
+    $err = validate($_POST, [
+        "title"   => ["required"],
+        "content" => ["required"],
+    ]);
 
     $image = uploadImage();
 
     if ($err == null && $image != null) {
-        Posts::create($title, $image, $content, $username);
+        Posts::create($title, $image, $content, $_SESSION["username"]);
         redirect("/dashboard");
     }
 }
@@ -37,7 +26,7 @@ if (isset($_POST["submit"])) {
     <a class="link" href="/dashboard">go back</a>
     <form class="form" method="POST" enctype="multipart/form-data">
         <h1>Create new post</h1>
-        <?php if (isset($er) || (isset($image) && $image == null)): ?>
+        <?php if (isset($err) || (isset($image) && $image == null)): ?>
             <span class="error">
                 <?= $err ?? "Could not upload image" ?>
             </span>

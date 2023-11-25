@@ -1,44 +1,22 @@
 <?php
 
-
-
 includes("/header");
 require_once "$LIB/models/posts.php";
 require_once "$LIB/utils.php";
 
-$post = Posts::get_by_id_and_other($_GET["id"], $username);
+$post = Posts::get_by_id_and_other($_GET["id"], $_SESSION["username"]);
 
 if ($post == null) {
     redirect("/dashboard");
 }
 
-function getErrorMessage($title, $content) {
-    if (empty($title)) {
-        return "Title is empty!";
-    }
-
-    if (empty($content)) {
-        return "Content is empty!";
-    }
-
-    return null;
-}
-
 if (isset($_POST["update-post"])) {
     $title = $_POST["title"];
     $content = $_POST["content"];
-    $err = getErrorMessage($title, $content);
-
-    if ($err == null) {
-        Posts::update($post->post_id, $title, $content);
-        redirect("/dashboard");
-    }
-}
-
-if (isset($_POST["update-post"])) {
-    $title = $_POST["title"];
-    $content = $_POST["content"];
-    $err = getErrorMessage($title, $content);
+    $err = validate($_POST, [
+        "title"   => ["required"],
+        "content" => ["required"],
+    ]);
 
     if ($err == null) {
         Posts::update($post->post_id, $title, $content);

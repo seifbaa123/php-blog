@@ -5,7 +5,7 @@
 includes("/header");
 require_once "$LIB/models/posts.php";
 
-$post = Posts::get_by_id_and_other($_GET["id"], $username);
+$post = Posts::get_by_id_and_other($_GET["id"], $_SESSION["username"]);
 
 if ($post == null) {
     redirect("/dashboard");

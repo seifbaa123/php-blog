@@ -4,8 +4,12 @@ includes("header");
 require_once "$LIB/models/users.php";
 
 function getErrorMessage($username, $password) {
-    if (empty($username) || empty($password)) {
-        return "Username or password is empty!";
+    $err = validate($_POST, [
+        "username" => ["required"],
+        "password" => ["required"],
+    ]);
+    if ($err != null) {
+        return $err;
     }
 
     $user = Users::get_user($username);
