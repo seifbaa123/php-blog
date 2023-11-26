@@ -35,9 +35,32 @@ function validate($data, $rules) {
 
             if (strpos($rule, "regex:") === 0) {
                 $regex = substr($rule, 6);
-                echo $regex;
                 if (!preg_match($regex, $data[$field])) {
                     return "Invalid value on field " . ucfirst($field);
+                }
+                continue;
+            }
+
+            if (strpos($rule, "max:") === 0) {
+                $max_length = intval(substr($rule, 4));
+                if (strlen($data[$field]) > $max_length) {
+                    return ucfirst($field) . " max length is $max_length";
+                }
+                continue;
+            }
+
+            if (strpos($rule, "min:") === 0) {
+                $min_length = intval(substr($rule, 4));
+                if (strlen($data[$field]) < $min_length) {
+                    return ucfirst($field) . " min length is $min_length";
+                }
+                continue;
+            }
+
+            if (strpos($rule, "len:") === 0) {
+                $length = intval(substr($rule, 4));
+                if (strlen($data[$field]) != $length) {
+                    return ucfirst($field) . " length must be $length";
                 }
                 continue;
             }

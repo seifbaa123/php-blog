@@ -5,8 +5,8 @@ require_once "$LIB/models/users.php";
 
 function getErrorMessage($username, $password) {
     $err = validate($_POST, [
-        "username" => ["required"],
-        "password" => ["required"],
+        "username" => ["required", "min:4"],
+        "password" => ["required", "min:8"],
     ]);
     if ($err != null) {
         return $err;
