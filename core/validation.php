@@ -10,23 +10,34 @@ function validate($data, $rules) {
                 continue;
             }
 
+            if (!isset($data[$field])) return;
+
             if ($rule == "number") {
-                if (!isset($data[$field]) || !is_int(intval($data[$field]))) {
+                if (!is_int(intval($data[$field]))) {
                     return ucfirst($field) . " must be a number";
                 }
                 continue;
             }
 
             if ($rule == "float") {
-                if (!isset($data[$field]) || !is_float(floatval($data[$field]))) {
+                if (!is_float(floatval($data[$field]))) {
                     return ucfirst($field) . " must be a float";
                 }
                 continue;
             }
 
             if ($rule == "email") {
-                if (!isset($data[$field]) || !filter_var($data[$field], FILTER_VALIDATE_EMAIL)) {
+                if (!filter_var($data[$field], FILTER_VALIDATE_EMAIL)) {
                     return ucfirst($field) . " must be an email";
+                }
+                continue;
+            }
+
+            if (strpos($rule, "regex:") === 0) {
+                $regex = substr($rule, 6);
+                echo $regex;
+                if (!preg_match($regex, $data[$field])) {
+                    return "Invalid value on field " . ucfirst($field);
                 }
                 continue;
             }
