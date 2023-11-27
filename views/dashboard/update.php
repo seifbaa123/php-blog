@@ -53,6 +53,7 @@ if (isset($_POST["update-image"])) {
             Content
             <textarea name="content" rows="5"><?= $post->content ?></textarea>
         </label>
+        <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="update-post">Submit</button>
     </form>
@@ -65,6 +66,7 @@ if (isset($_POST["update-image"])) {
             Image
             <input type="file" name="image">
         </label>
+        <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
         <button name="update-image">Submit</button>
     </form>

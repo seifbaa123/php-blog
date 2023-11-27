@@ -17,9 +17,9 @@ Router::GET("/dashboard/create", "dashboard/create", ["auth"]);
 Router::POST("/dashboard/create", "dashboard/create", ["auth"]);
 
 Router::GET("/dashboard/update", "dashboard/update", ["auth"]);
-Router::POST("/dashboard/update", "dashboard/update", ["auth"]);
+Router::PUT("/dashboard/update", "dashboard/update", ["auth"]);
 
 Router::GET("/dashboard/delete", "dashboard/delete", ["auth"]);
-Router::POST("/dashboard/delete", "dashboard/delete", ["auth"]);
+Router::DELETE("/dashboard/delete", "dashboard/delete", ["auth"]);
 
 Router::GET("/500", "500");

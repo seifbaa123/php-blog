@@ -26,6 +26,7 @@ if (isset($_POST["submit"])) {
         <p style="margin-bottom: .75rem">Are you sure you want to delete this post.</p>
         <button class="danger" name="submit">Delete</button>
         <button class="secondary" name="submit" type="button" onclick="location = '/dashboard'">Cancel</button>
+        <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
     </form>
 </main>
