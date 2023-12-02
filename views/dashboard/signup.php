@@ -16,6 +16,8 @@ function getErrorMessage($username, $password) {
     if ($user != null) {
         return "User already exist!";
     }
+
+    return null;
 }
 
 if (isset($_POST["submit"])) {
@@ -36,7 +38,7 @@ if (isset($_POST["submit"])) {
 <main>
     <form class="form" method="POST">
         <h1>Signup</h1>
-        <?php if (isset($er)): ?>
+        <?php if (isset($err)) : ?>
             <span class="error">
                 <?= $err ?>
             </span>

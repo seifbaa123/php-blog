@@ -10,6 +10,6 @@ require_once "../core/import-helpers.php";
 
 require_once "../app/routes.php";
 
-require Router::get_view();
+Router::handleRequest();
 
 $_SESSION["csrf"] = $csrf;

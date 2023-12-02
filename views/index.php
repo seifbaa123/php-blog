@@ -9,8 +9,8 @@ $posts = Posts::get_all();
 
 <main>
     <section class="posts">
-        <?php foreach ($posts as $index => $post): ?>
-            <a href="/post?id=<?= $post->post_id ?>" class="post <?= $index === 0 ? 'full-width' : '' ?>">
+        <?php foreach ($posts as $index => $post) : ?>
+            <a href="/post/<?= $post->post_id ?>" class="post <?= $index === 0 ? 'full-width' : '' ?>">
                 <img src="/images/<?= $post->image_url ?>" alt="<?= $post->title ?>">
                 <div class="content">
                     <h3>

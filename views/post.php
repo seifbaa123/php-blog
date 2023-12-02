@@ -3,12 +3,12 @@
 includes("header");
 require_once "$LIB/models/posts.php";
 
-$post = Posts::get_by_id($_GET["id"]);
+$post = Posts::get_by_id($params["id"]);
 
 ?>
 
 <main class="single-post">
-    <?php if ($post != null): ?>
+    <?php if ($post != null) : ?>
         <h1>
             <?= $post->title ?>
         </h1>
@@ -16,7 +16,7 @@ $post = Posts::get_by_id($_GET["id"]);
         <p>
             <?= $post->content ?>
         </p>
-    <?php else: ?>
+    <?php else : ?>
         <h1>Post not found</h1>
     <?php endif; ?>
 </main>
