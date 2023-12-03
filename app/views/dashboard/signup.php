@@ -1,6 +1,6 @@
 <?php
 
-includes("header");
+component("header");
 require_once "$LIB/models/users.php";
 
 function getErrorMessage($username, $password) {
@@ -57,5 +57,5 @@ if (isset($_POST["submit"])) {
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

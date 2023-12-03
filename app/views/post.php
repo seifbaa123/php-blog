@@ -1,6 +1,6 @@
 <?php
 
-includes("header");
+component("header");
 require_once "$LIB/models/posts.php";
 
 $post = Posts::get_by_id($params["id"]);
@@ -22,5 +22,5 @@ $post = Posts::get_by_id($params["id"]);
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-includes("header");
+component("header");
 require_once "$LIB/models/posts.php";
 
 $posts = Posts::search($_GET["q"]);
@@ -26,5 +26,5 @@ $posts = Posts::search($_GET["q"]);
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

@@ -36,11 +36,11 @@
         gap: 1rem;
     }
 
-    .post.full-width img {
+    .post:first-child img {
         width: 50%;
     }
 
-    .post.full-width h3 {
+    .post:first-child h3 {
         font-size: 2rem;
     }
 }

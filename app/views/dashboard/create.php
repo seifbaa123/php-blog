@@ -1,6 +1,6 @@
 <?php
 
-includes("/header");
+component("/header");
 require_once "$LIB/models/posts.php";
 require_once "$LIB/utils.php";
 
@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
     <a class="link" href="/dashboard">go back</a>
     <form class="form" method="POST" enctype="multipart/form-data">
         <h1>Create new post</h1>
-        <?php if (isset($err) || (isset($image) && $image == null)): ?>
+        <?php if (isset($err) || (isset($image) && $image == null)) : ?>
             <span class="error">
                 <?= $err ?? "Could not upload image" ?>
             </span>
@@ -49,5 +49,5 @@ if (isset($_POST["submit"])) {
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

@@ -1,5 +1,5 @@
 <?php
-includes("header");
+component("header");
 ?>
 
 <main>
@@ -7,5 +7,5 @@ includes("header");
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

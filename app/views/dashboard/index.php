@@ -2,7 +2,7 @@
 
 
 
-includes("header");
+component("header");
 require_once "$LIB/models/posts.php";
 
 $posts = Posts::get_all();
@@ -20,9 +20,9 @@ $posts = Posts::get_all();
 
     <a class="link" href="/dashboard/create">Create new post</a>
 
-    <?php if (count($posts) == 0): ?>
+    <?php if (count($posts) == 0) : ?>
         <p style="text-align: center">There is no posts yet!</p>
-    <?php else: ?>
+    <?php else : ?>
         <div class="table">
             <table>
                 <thead>
@@ -31,7 +31,7 @@ $posts = Posts::get_all();
                     <th></th>
                 </thead>
                 <tbody>
-                    <?php foreach ($posts as $post): ?>
+                    <?php foreach ($posts as $post) : ?>
                         <tr>
                             <td>
                                 <?= $post->post_id ?>
@@ -52,5 +52,5 @@ $posts = Posts::get_all();
 </main>
 
 <?php
-includes("footer");
+component("footer");
 ?>

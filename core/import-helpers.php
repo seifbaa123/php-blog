@@ -6,8 +6,8 @@ function view($path, $params = []) {
     require "../app/views/$path.php";
 }
 
-function includes($path) {
-    require "../app/includes/$path.php";
+function component($path, $params = []) {
+    require "../app/components/$path.php";
 }
 
 $LIB = __DIR__ . "/../app/lib";
