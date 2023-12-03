@@ -3,11 +3,11 @@
 function view($path, $params = []) {
     global $LIB;
     global $pdo;
-    require "../views/$path.php";
+    require "../app/views/$path.php";
 }
 
 function includes($path) {
-    require "../includes/$path.php";
+    require "../app/includes/$path.php";
 }
 
-$LIB = __DIR__ . "/../lib";
+$LIB = __DIR__ . "/../app/lib";

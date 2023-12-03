@@ -41,7 +41,7 @@ class Router {
                     $params = self::getParams($routeUrl, $matches);
 
                     foreach ($route->middlewares as $m) {
-                        require __DIR__ . "/../middlewares/$m.php";
+                        require __DIR__ . "/../app/middlewares/$m.php";
                     }
 
                     if (gettype($route->handler) === "string") {
@@ -54,7 +54,7 @@ class Router {
             }
         }
 
-        require __DIR__ . "/../views/404.php";
+        require __DIR__ . "/../app/views/404.php";
     }
 
     static private function convertToRegex(string $route) {
