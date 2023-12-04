@@ -1,11 +1,9 @@
 <?php
 
-
-
 component("header");
-require_once "$LIB/models/posts.php";
+require_once "$lib/models/posts.php";
 
-$posts = Posts::get_all();
+$posts = Posts::get_by_other($_SESSION["username"]);
 
 ?>
 

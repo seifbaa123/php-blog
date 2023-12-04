@@ -3,7 +3,7 @@
 
 
 component("/header");
-require_once "$LIB/models/posts.php";
+require_once "$lib/models/posts.php";
 
 $post = Posts::get_by_id_and_other($_GET["id"], $_SESSION["username"]);
 

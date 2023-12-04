@@ -1,13 +1,16 @@
 <?php
 
 function view($path, $params = []) {
-    global $LIB;
-    global $pdo;
+    global $lib;
+    global $app;
     require "../app/views/$path.php";
 }
 
 function component($path, $params = []) {
+    global $lib;
+    global $app;
     require "../app/components/$path.php";
 }
 
-$LIB = __DIR__ . "/../app/lib";
+$lib = __DIR__ . "/../app/lib";
+$public = __DIR__ . "/../public";

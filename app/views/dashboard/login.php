@@ -1,7 +1,7 @@
 <?php
 
 component("header");
-require_once "$LIB/models/users.php";
+require_once "$lib/models/users.php";
 
 function getErrorMessage($username, $password) {
     $err = validate($_POST, [

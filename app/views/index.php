@@ -1,7 +1,7 @@
 <?php
 
 component("header");
-require_once "$LIB/models/posts.php";
+require_once "$lib/models/posts.php";
 
 $posts = Posts::get_all();
 

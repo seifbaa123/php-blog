@@ -1,8 +1,8 @@
 <?php
 
 component("/header");
-require_once "$LIB/models/posts.php";
-require_once "$LIB/utils.php";
+require_once "$lib/models/posts.php";
+require_once "$lib/utils.php";
 
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];

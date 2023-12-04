@@ -1,11 +1,13 @@
 <?php
 
 function uploadImage() {
+    global $public;
+
     if (!isset($_FILES["image"]) || $_FILES["image"]["error"] != 0) {
         return null;
     }
 
-    $uploadDir = __DIR__ . "/../public/images/";
+    $uploadDir = "$public/images/";
 
     $fileName = uniqid() . $_FILES["image"]["name"];
     $targetPath = $uploadDir . $fileName;

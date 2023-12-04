@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . "/../db.php";
+require_once "$lib/db.php";
 
 class Users {
     static function get_user($username) {
-        global $pdo;
+        global $app;
 
         try {
-            $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+            $stmt = $app->pdo->prepare("SELECT * FROM users WHERE username = :username");
             $stmt->bindParam(":username", $username);
             $stmt->execute();
             $results = $stmt->fetchAll(PDO::FETCH_CLASS);
@@ -18,12 +18,12 @@ class Users {
     }
 
     static function create_user($username, $password) {
-        global $pdo;
+        global $app;
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         try {
-            $stmt = $pdo->prepare("INSERT INTO users VALUES(:username, :password)");
+            $stmt = $app->pdo->prepare("INSERT INTO users VALUES(:username, :password)");
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $hash);
             $stmt->execute();

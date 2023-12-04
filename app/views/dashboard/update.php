@@ -1,8 +1,8 @@
 <?php
 
 component("/header");
-require_once "$LIB/models/posts.php";
-require_once "$LIB/utils.php";
+require_once "$lib/models/posts.php";
+require_once "$lib/utils.php";
 
 $post = Posts::get_by_id_and_other($_GET["id"], $_SESSION["username"]);
 
@@ -28,7 +28,7 @@ if (isset($_POST["update-image"])) {
     $image = uploadImage();
 
     if ($image != null) {
-        unlink("../static/images/" . $post->image_url);
+        unlink("$public/images/" . $post->image_url);
         Posts::update_image($post->post_id, $image);
         redirect("/dashboard");
     }
