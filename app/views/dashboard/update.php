@@ -37,38 +37,38 @@ if (isset($_POST["update-image"])) {
 ?>
 
 <main>
-    <a class="link" href="/dashboard">go back</a>
+    <a class="link" href="/dashboard"><?= $lang->goBack ?></a>
     <form class="form" method="POST">
-        <h2>Update post</h2>
+        <h2><?= $lang->updatePost ?></h2>
         <?php if (isset($err)) : ?>
             <span class="error">
                 <?= $err ?>
             </span>
         <?php endif; ?>
         <label>
-            Title
+            <?= $lang->title ?>
             <input type="text" name="title" value="<?= $post->title ?>">
         </label>
         <label>
-            Content
+            <?= $lang->content ?>
             <textarea name="content" rows="5"><?= $post->content ?></textarea>
         </label>
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
-        <button name="update-post">Submit</button>
+        <button name="update-post"><?= $lang->submit ?></button>
     </form>
     <form class="form" method="POST" enctype="multipart/form-data">
-        <h2>Update image</h2>
+        <h2><?= $lang->updateImage ?></h2>
         <?php if (isset($image) && $image == null) : ?>
-            <span class="error">Could not upload image</span>
+            <span class="error"><?= $lang->couldNotUploadImage ?></span>
         <?php endif; ?>
         <label>
-            Image
+            <?= $lang->Image ?>
             <input type="file" name="image">
         </label>
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
-        <button name="update-image">Submit</button>
+        <button name="update-image"><?= $lang->submit ?></button>
     </form>
 </main>
 

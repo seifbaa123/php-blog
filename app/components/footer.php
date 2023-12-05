@@ -1,5 +1,5 @@
 <footer>
-    Copyright ©2023 All rights reserved
+    <?= $lang->copyright ?> ©2023 <?= $lang->allRightsReserved ?>
 </footer>
 </body>
 

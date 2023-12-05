@@ -37,22 +37,22 @@ if (isset($_POST["submit"])) {
 
 <main>
     <form class="form" method="POST">
-        <h1>Signup</h1>
+        <h1><?= $lang->signup ?></h1>
         <?php if (isset($err)) : ?>
             <span class="error">
                 <?= $err ?>
             </span>
         <?php endif; ?>
         <label>
-            Username
+            <?= $lang->username ?>
             <input type="text" name="username">
         </label>
         <label>
-            Password
+            <?= $lang->password ?>
             <input type="password" name="password">
         </label>
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
-        <button name="submit">Submit</button>
+        <button name="submit"><?= $lang->submit ?></button>
     </form>
 </main>
 

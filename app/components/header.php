@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $app->lang ?>" dir="<?= $app->dir ?>">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Home</title>
+    <title><?= $lang->blog ?> - <?= $lang->home ?></title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
@@ -21,10 +21,10 @@
         <form class="search" action="/search">
             <label>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" name="q" value="<?= isset($_GET["q"]) ? $_GET["q"] : '' ?>" placeholder="Search...">
+                <input type="text" name="q" value="<?= isset($_GET["q"]) ? $_GET["q"] : '' ?>" placeholder="<?= $lang->search ?>...">
             </label>
         </form>
-        <h2><a href="/">Blog</a></h2>
+        <h2><a href="/"><?= $lang->blog ?></a></h2>
         <div class="icons">
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-reddit-alien"></i></a>

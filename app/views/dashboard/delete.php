@@ -1,7 +1,5 @@
 <?php
 
-
-
 component("/header");
 require_once "$lib/models/posts.php";
 
@@ -20,12 +18,12 @@ if (isset($_POST["submit"])) {
 ?>
 
 <main>
-    <a class="link" href="/dashboard">go back</a>
+    <a class="link" href="/dashboard"><?= $lang->goBack ?></a>
     <form class="form" method="POST">
-        <h2>Delete post</h2>
-        <p style="margin-bottom: .75rem">Are you sure you want to delete this post.</p>
-        <button class="danger" name="submit">Delete</button>
-        <button class="secondary" name="submit" type="button" onclick="location = '/dashboard'">Cancel</button>
+        <h2><?= $lang->deletePost ?></h2>
+        <p style="margin-bottom: .75rem"><?= $lang->AreYouSureYouWantToDeleteThisPost ?></p>
+        <button class="danger" name="submit"><?= $lang->delete ?></button>
+        <button class="secondary" name="submit" type="button" onclick="location = '/dashboard'"><?= $lang->cancel ?></button>
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="csrf" value="<?= $csrf ?>">
     </form>
